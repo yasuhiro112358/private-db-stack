@@ -1,4 +1,5 @@
 .env
+.env.prod
 backup/*.sql
 backup/*.sql.gz
 backup/*.tar
