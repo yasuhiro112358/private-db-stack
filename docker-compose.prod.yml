@@ -1,6 +1,8 @@
 services:
   mysql:
     image: mysql:8.0.40  # 2025年8月時点の最新安定版
+    networks:
+      - traefik
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
