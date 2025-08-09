@@ -18,11 +18,11 @@ cd private-db-stack
 # 強力なパスワードを生成
 openssl rand -base64 32
 
-# .env.prodファイルを作成
-echo "MYSQL_ROOT_PASSWORD=生成したパスワード" > .env.prod
+# .envファイルを作成（本番用）
+echo "MYSQL_ROOT_PASSWORD=生成したパスワード" > .env
 
 # ファイル権限を制限
-chmod 600 .env.prod
+chmod 600 .env
 ```
 
 ### 3. デプロイ実行
