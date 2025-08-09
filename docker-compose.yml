@@ -13,8 +13,6 @@ services:
       UPLOAD_LIMIT: 128M
     depends_on:
       - mysql
-    ports:
-      - "8081:80"
 
 volumes:
   mysql-data:

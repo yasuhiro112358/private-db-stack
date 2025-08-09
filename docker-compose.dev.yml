@@ -1,0 +1,4 @@
+services:
+  phpmyadmin:
+    ports:
+      - "8081:80"
