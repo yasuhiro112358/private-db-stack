@@ -4,3 +4,4 @@ backup/*.sql.gz
 backup/*.tar
 backup/*.tar.gz
 .DS_Store
+.vscode
