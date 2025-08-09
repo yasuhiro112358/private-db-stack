@@ -1,0 +1,28 @@
+services:
+  mysql:
+    image: mysql:9.4
+    container_name: shared-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.2-apache
+    environment:
+      - PMA_HOST=shared-mysql
+      - UPLOAD_LIMIT=256M
+    depends_on:
+      - mysql
+    ports:
+      - "8081:80"            # ← まずはポートで公開（http://<サーバIP>:8081）
+    restart: unless-stopped
+
+volumes:
+  mysql_data:

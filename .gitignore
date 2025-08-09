@@ -1,0 +1,6 @@
+.env
+backup/*.sql
+backup/*.sql.gz
+backup/*.tar
+backup/*.tar.gz
+.DS_Store
